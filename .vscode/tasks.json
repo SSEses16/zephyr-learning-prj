@@ -10,6 +10,12 @@
         "isDefault": true
       },
       "problemMatcher": "$gcc"
+    },
+    {
+      "label": "west: flash myboard",
+      "type": "shell",
+      "command": "west flash -r jlink",
+      "problemMatcher": "$gcc"
     }
   ]
 }
