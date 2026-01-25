@@ -1,0 +1,6 @@
+board:
+  name: myboard
+  full_name: STM32F4 myboard
+  vendor: st
+  socs:
+    - name: stm32f407xx
