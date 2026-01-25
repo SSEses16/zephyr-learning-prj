@@ -2,6 +2,7 @@ build
 .cache
 .clangd
 .vscode/settings.json
+.west
 tools
 zephyr
 bootloader
