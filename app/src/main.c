@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <zephyr/kernel.h>
 #include <zephyr/drivers/gpio.h>
+#include <zephyr/app_version.h>
+
+#define STR_HELPER(x) #x
+#define STR(x) STR_HELPER(x)
+
+#define APP_GIT_VERSION STR(APP_BUILD_VERSION)
 
 /* 1000 msec = 1 sec */
 #define SLEEP_TIME_MS   200
@@ -20,6 +26,8 @@ int main(void)
 {
 	int ret;
 	bool led_state = true;
+
+	printf("Project version: %s\n", APP_GIT_VERSION);
 
 	if (!gpio_is_ready_dt(&led)) {
 		return 0;
@@ -47,7 +55,6 @@ int main(void)
 		}
 
 		led_state = !led_state;
-		printf("LED state: %s\n", led_state ? "ON" : "OFF");
 		k_msleep(SLEEP_TIME_MS);
 	}
 	return 0;
