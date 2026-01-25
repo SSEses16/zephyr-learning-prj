@@ -2,3 +2,7 @@ build
 .cache
 .clangd
 .vscode/settings.json
+tools
+zephyr
+bootloader
+modules

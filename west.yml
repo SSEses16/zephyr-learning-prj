@@ -8,4 +8,4 @@ manifest:
       revision: v4.3.0
       import: true
   self:
-    path: myboardapp
+    path: app

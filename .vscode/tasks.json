@@ -4,7 +4,7 @@
     {
       "label": "west: build myboard",
       "type": "shell",
-      "command": "west build -b myboard",
+      "command": "west build -b myboard app",
       "group": {
         "kind": "build",
         "isDefault": true
