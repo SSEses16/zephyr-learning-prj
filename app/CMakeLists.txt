@@ -10,4 +10,5 @@ target_sources(app PRIVATE src/main.c)
 file(WRITE ${CMAKE_SOURCE_DIR}/../.clangd
 "CompileFlags:
     CompilationDatabase: ${CMAKE_CURRENT_BINARY_DIR}
+    Remove: [-fno-printf-return-value, -mfp16-format=ieee, -fno-reorder-functions]
 ")
