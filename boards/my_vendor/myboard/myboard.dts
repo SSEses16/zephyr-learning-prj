@@ -92,3 +92,20 @@
 &dma1 {
 	status = "okay";
 };
+
+// modules/hal/stm32/dts/st/f4/stm32f407v(e-g)tx-pinctrl.dtsi
+&spi1 {
+	pinctrl-0 = <&spi1_sck_pb3 &spi1_miso_pb4 &spi1_mosi_pb5>;
+	cs-gpios = <&gpiob 0 GPIO_ACTIVE_LOW>;
+	pinctrl-names = "default";
+	status = "okay";
+
+    w25q16: flash@0 {
+        compatible = "jedec,spi-nor";
+        reg = <0>;
+        spi-max-frequency = <8000000>;
+        label = "W25Q16";
+        size = <0x200000>;   /* 2 MB */
+		status = "okay";
+    };
+};

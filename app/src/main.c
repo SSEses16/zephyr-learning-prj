@@ -2,6 +2,8 @@
 #include <zephyr/kernel.h>
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/app_version.h>
+#include <zephyr/device.h>
+#include <zephyr/devicetree.h>
 
 #define STR_HELPER(x) #x
 #define STR(x) STR_HELPER(x)
@@ -22,6 +24,8 @@
 static const struct gpio_dt_spec led = GPIO_DT_SPEC_GET(LED0_NODE, gpios);
 static const struct gpio_dt_spec led_1 = GPIO_DT_SPEC_GET(LED1_NODE, gpios);
 
+const struct device *flash_dev = DEVICE_DT_GET(DT_NODELABEL(w25q16));
+
 int main(void)
 {
 	int ret;
@@ -41,6 +45,10 @@ int main(void)
 	ret = gpio_pin_configure_dt(&led_1, GPIO_OUTPUT_INACTIVE);
 	if (ret < 0) {
 		return 0;
+	}
+
+	if (!device_is_ready(flash_dev)) {
+		printk("Flash not ready!\n");
 	}
 
 	while (1) {
